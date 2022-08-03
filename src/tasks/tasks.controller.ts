@@ -1,3 +1,4 @@
+import { Task } from './task.module';
 import { TasksService } from './tasks.service';
 import { Controller, Get } from '@nestjs/common';
 
@@ -5,8 +6,8 @@ import { Controller, Get } from '@nestjs/common';
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
-  @Get() // /tasks
-  getAllTasks() {
+  @Get() // '/tasks'
+  getAllTasks(): Array<Task> {
     return this.tasksService.getAllTasks();
   }
 }
