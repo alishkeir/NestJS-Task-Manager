@@ -1,9 +1,11 @@
+//* ENUM Type to specify Task Status Options
 export enum TaskStatus {
   OPEN = 'OPEN',
   IN_PROGRESS = 'IN_PROGRESS',
   DONE = 'DONE',
 }
 
+//* Interface to specify Task DataType
 export interface Task {
   id: string;
   title: string;
