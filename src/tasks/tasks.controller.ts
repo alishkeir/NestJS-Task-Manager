@@ -1,8 +1,6 @@
-import { DeleteResult } from 'typeorm';
 import { UpdateTaskStatusDTO } from './dto/update-task-status.dto';
 import { GetTasksFilterDTO } from './dto/get-tasks-filter.dto';
 import { CreateTaskDTO } from './dto/create-task.dto';
-import { TaskStatus } from './task-status.enum';
 import { TasksService } from './tasks.service';
 import {
   Body,

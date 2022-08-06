@@ -3,9 +3,8 @@ import { TasksRepository } from './tasks.repository';
 import { GetTasksFilterDTO } from './dto/get-tasks-filter.dto';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { TaskStatus } from './task-status.enum';
-import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
+import {Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult } from 'typeorm';
 
 @Injectable()
 export class TasksService {
