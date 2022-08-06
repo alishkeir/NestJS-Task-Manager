@@ -13,10 +13,13 @@ import {
   Delete,
   Patch,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { Task } from './task.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('tasks')
+@UseGuards(AuthGuard('jwt'))
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
