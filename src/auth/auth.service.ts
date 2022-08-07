@@ -1,5 +1,8 @@
 import { JWTPayload } from './jwt-payload.interface';
-import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
+import {
+  RegisterAuthCredentialsDTO,
+  LoginAuthCredentialsDTO,
+} from './dto/auth-credentials.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UsersRepository } from './users.repository';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
@@ -15,12 +18,12 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signUp(authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
+  async signUp(authCredentialsDTO: RegisterAuthCredentialsDTO): Promise<void> {
     return this.usersRepository.createUser(authCredentialsDTO);
   }
 
   async signIn(
-    authCredentialsDTO: AuthCredentialsDTO,
+    authCredentialsDTO: LoginAuthCredentialsDTO,
   ): Promise<{ accessToken: string }> {
     const { username, password }: typeof authCredentialsDTO =
       authCredentialsDTO;

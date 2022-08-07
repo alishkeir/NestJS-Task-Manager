@@ -1,8 +1,17 @@
+import { User } from './../auth/user.entity';
 import { Injectable } from '@nestjs/common';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { TaskStatus } from './task-status.enum';
+import { Exclude } from 'class-transformer';
 
-@Injectable()
+
+
 @Entity('Task')
 export class Task extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
@@ -16,4 +25,8 @@ export class Task extends BaseEntity {
 
   @Column()
   status: TaskStatus;
+
+  @ManyToOne((_type) => User, (user) => user.tasks, { eager: false })
+  @Exclude({ toPlainOnly: true })
+  user: User;
 }
