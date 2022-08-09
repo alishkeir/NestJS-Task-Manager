@@ -17,7 +17,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
+        const isProduction = process.env.NODE_ENV == 'prod';
+
         return {
+          ssl: isProduction,
+          extra: {
+            ssl: isProduction ? { rejectUnauthorized: false } : null,
+          },
           type: 'postgres',
           autoLoadEntities: true,
           synchronize: true,
