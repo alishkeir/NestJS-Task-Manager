@@ -1,5 +1,5 @@
 # NestJS-Task-Manager
-Task Manager App Built Using NestJS with a ReactJS Ready Template
+Task Manager App Built Using NestJS
 
 
  - **Objectives: NestJS**
